@@ -44,8 +44,8 @@ class ProjectorView : AppCompatActivity() {
         val projectorWebClient = ProjectorWebClient(this, progress)
         projector.apply {
             webViewClient = projectorWebClient
-            loadUrl("$protocol://$address:$port$tokenSuffix")
             settings.javaScriptEnabled = true
+            loadUrl("$protocol://$address:$port$tokenSuffix")
         }
     }
 
