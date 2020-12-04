@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Projector</string>
+
+    <string name="input_address">Address</string>
+    <string name="input_port">Port</string>
+    <string name="button_https">Secure connection</string>
+    <string name="button_start">Let\'s go!</string>
+
+    <string name="error_message">Failed to resolve host</string>
+    <string name="error_exit">Exit</string>
+</resources>
