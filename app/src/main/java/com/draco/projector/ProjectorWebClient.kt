@@ -1,13 +1,13 @@
 package com.draco.projector
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.graphics.Bitmap
+import android.net.http.SslError
 import android.view.View
-import android.webkit.WebResourceError
-import android.webkit.WebResourceRequest
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.*
 import android.widget.ProgressBar
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 
 class ProjectorWebClient(
@@ -22,6 +22,18 @@ class ProjectorWebClient(
     override fun onPageFinished(view: WebView?, url: String?) {
         super.onPageFinished(view, url)
         progress.visibility = View.GONE
+    }
+
+    override fun onReceivedSslError(view: WebView?, handler: SslErrorHandler?, error: SslError?) {
+        MaterialAlertDialogBuilder(activity)
+            .setTitle(R.string.ssl_title)
+            .setMessage(R.string.ssl_message)
+            .setPositiveButton(R.string.ssl_accept) { _, _ -> handler?.proceed() }
+            .setNegativeButton(R.string.ssl_decline) { _, _ ->
+                handler?.cancel()
+                activity.finish()
+            }
+            .show()
     }
 
     override fun onReceivedError(

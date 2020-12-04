@@ -3,9 +3,15 @@
 
     <string name="input_address">Address</string>
     <string name="input_port">Port</string>
+    <string name="input_password">Password</string>
     <string name="button_https">Secure connection</string>
     <string name="button_start">Let\'s go!</string>
 
     <string name="error_message">Failed to resolve host</string>
     <string name="error_exit">Exit</string>
+
+    <string name="ssl_title">SSL Certificate</string>
+    <string name="ssl_message">This SSL certificate is untrusted or invalid. Proceed anyway?</string>
+    <string name="ssl_accept">Accept</string>
+    <string name="ssl_decline">Decline</string>
 </resources>

@@ -12,6 +12,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class MainActivity : AppCompatActivity() {
     private lateinit var address: EditText
     private lateinit var port: EditText
+    private lateinit var password: EditText
     private lateinit var https: MaterialCheckBox
     private lateinit var start: ExtendedFloatingActionButton
 
@@ -21,12 +22,14 @@ class MainActivity : AppCompatActivity() {
 
         address = findViewById(R.id.address)
         port = findViewById(R.id.port)
+        password = findViewById(R.id.password)
         https = findViewById(R.id.https)
         start = findViewById(R.id.start)
 
         getPreferences(Context.MODE_PRIVATE).apply {
             address.setText(getString("address", "192.168.0.1"))
             port.setText(getString("port", "9999"))
+            password.setText(getString("password", ""))
             https.isChecked = getBoolean("https", false)
         }
 
@@ -34,6 +37,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ProjectorView::class.java).apply {
                 putExtra("address", address.text.toString())
                 putExtra("port", port.text.toString())
+                putExtra("password", password.text.toString())
                 putExtra("https", https.isChecked)
             }
 
@@ -47,6 +51,7 @@ class MainActivity : AppCompatActivity() {
             with (edit()) {
                 putString("address", address.text.toString())
                 putString("port", port.text.toString())
+                putString("password", password.text.toString())
                 putBoolean("https", https.isChecked)
                 apply()
             }

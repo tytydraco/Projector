@@ -24,22 +24,27 @@ class ProjectorView : AppCompatActivity() {
 
         val address = intent.extras!!.getString("address")
         val port = intent.extras!!.getString("port")
+        val password = intent.extras!!.getString("password")
         val https = intent.extras!!.getBoolean("https")
 
         val protocol = if (https)
-            "https://"
+            "https"
         else
-            "http://"
+            "http"
 
         window.decorView.setOnApplyWindowInsetsListener { view, windowInsets ->
             view.post { immersive() }
             return@setOnApplyWindowInsetsListener windowInsets
         }
 
+        var tokenSuffix = ""
+        if (password!!.isNotBlank())
+            tokenSuffix = "?token=$password"
+
         val projectorWebClient = ProjectorWebClient(this, progress)
         projector.apply {
             webViewClient = projectorWebClient
-            loadUrl("$protocol$address:$port")
+            loadUrl("$protocol://$address:$port$tokenSuffix")
             settings.javaScriptEnabled = true
         }
     }
