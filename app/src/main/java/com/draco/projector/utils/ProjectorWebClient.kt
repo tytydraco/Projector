@@ -1,12 +1,12 @@
-package com.draco.projector
+package com.draco.projector.utils
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.graphics.Bitmap
 import android.net.http.SslError
 import android.view.View
 import android.webkit.*
 import android.widget.ProgressBar
+import com.draco.projector.R
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 

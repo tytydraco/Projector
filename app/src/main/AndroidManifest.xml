@@ -17,14 +17,14 @@
         android:theme="@style/Theme.Projector"
         android:usesCleartextTraffic="true"
         android:banner="@drawable/banner">
-        <activity android:name=".MainActivity">
+        <activity android:name=".views.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProjectorView"
+        <activity android:name=".views.ProjectorActivity"
             android:theme="@style/Theme.Projector.ProjectorView"
             android:configChanges="orientation|screenLayout|screenSize|keyboardHidden" />
     </application>

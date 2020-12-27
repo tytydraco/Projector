@@ -1,13 +1,13 @@
-package com.draco.projector
+package com.draco.projector.views
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.draco.projector.R
 import com.google.android.material.checkbox.MaterialCheckBox
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
     private lateinit var address: EditText
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         start.setOnClickListener {
-            val intent = Intent(this, ProjectorView::class.java).apply {
+            val intent = Intent(this, ProjectorActivity::class.java).apply {
                 putExtra("address", address.text.toString())
                 putExtra("port", port.text.toString())
                 putExtra("password", password.text.toString())
