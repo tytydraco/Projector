@@ -33,10 +33,11 @@ class ProjectorActivity : AppCompatActivity() {
         val password = intent.extras!!.getString("password")!!
         val https = intent.extras!!.getBoolean("https")
 
-        window.decorView.setOnApplyWindowInsetsListener { view, windowInsets ->
-            view.post { immersive() }
-            return@setOnApplyWindowInsetsListener windowInsets
-        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH)
+            window.decorView.setOnApplyWindowInsetsListener { view, windowInsets ->
+                view.post { immersive() }
+                return@setOnApplyWindowInsetsListener windowInsets
+            }
 
         val protocol = viewModel.getHttpProtocol(https)
         val tokenSuffix = viewModel.getTokenSuffix(password)

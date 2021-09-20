@@ -1,5 +1,6 @@
 package com.draco.projector.utils
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.graphics.Bitmap
 import android.net.http.SslError
@@ -24,6 +25,7 @@ class ProjectorWebClient(
         progress.visibility = View.GONE
     }
 
+    @SuppressLint("WebViewClientOnReceivedSslError")
     override fun onReceivedSslError(view: WebView?, handler: SslErrorHandler?, error: SslError?) {
         MaterialAlertDialogBuilder(activity)
             .setTitle(R.string.ssl_title)
